@@ -7,7 +7,8 @@ namespace DataLayer.EntityConfiguration
     public class MemberDetailsConfiguration : EntityTypeConfiguration<MemberDetails>
     {
         public MemberDetailsConfiguration()
-        {                        
+        {
+            Property(x => x.Id).HasColumnName("MemberDetailsId").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(x => x.FirstName).HasMaxLength(50);
             Property(x => x.LastName).HasMaxLength(50);
             Property(x => x.Gender).HasColumnType("char").HasMaxLength(1);
@@ -17,8 +18,9 @@ namespace DataLayer.EntityConfiguration
             Property(x => x.MemberAddress.AddressLine1).IsOptional();
             Property(x => x.MemberAddress.AddressLine2).IsOptional();
             Property(x => x.MemberAddress.PinCode).IsOptional();
-            Property(x => x.MemberAddress.State).IsOptional();
-            Property(x => x.MemberAddress.Country).IsOptional();
+            //Property(x => x.MemberLoginDetailsId).IsRequired();
+            //Property(x => x.MemberAddress.State).IsOptional();
+            //Property(x => x.MemberAddress.Country).IsOptional();
         }
     }
 }

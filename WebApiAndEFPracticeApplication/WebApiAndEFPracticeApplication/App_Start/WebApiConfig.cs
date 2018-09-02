@@ -1,6 +1,7 @@
 ﻿using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 
+
 namespace WebApiAndEFPracticeApplication
 {
     public static class WebApiConfig
@@ -21,9 +22,13 @@ namespace WebApiAndEFPracticeApplication
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            var formatter = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            var formatter = config.Formatters.JsonFormatter;
             formatter.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver();
+            formatter.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;            
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+            
 
+            //EnableCorsAtribute
             // Adding JSON type web api formatting.  
             config.Formatters.Clear();
             config.Formatters.Add(formatter);

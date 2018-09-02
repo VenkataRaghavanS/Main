@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using DataLayer.RepositoryAndUnitOfWork;
-using Domain;
+using DatabaseFirstDataLayer.RepositoryAndUnitOfWork;
+using DatabaseFirstDataLayer;
+using DTO;
+using AutoMapper;
 
 namespace BusinessLayer
 {
@@ -10,24 +12,26 @@ namespace BusinessLayer
         GenericUnitOfWork unitOfWork = new GenericUnitOfWork();
         private bool disposed = false;
 
-        public MemberDetails AddMemberDetails(MemberDetails memberDetails)
+        public MemberDetailsDTO AddMemberDetails(MemberDetails memberDetails)
         {
             GenericRepository<MemberDetails> samplePracticeRepo = unitOfWork.GetRepoInstance<MemberDetails>();
             samplePracticeRepo.Add(memberDetails);
             unitOfWork.SaveChanges();
-            return memberDetails;
+            return Mapper.Map<MemberDetailsDTO>(memberDetails);
         }
 
-        public MemberDetails GetSpecificMemberDetailsRecord(int memberDetailsId)
+        public MemberDetailsDTO GetSpecificMemberDetailsRecord(int memberDetailsId)
         {
             GenericRepository<MemberDetails> samplePracticeRepo = unitOfWork.GetRepoInstance<MemberDetails>();
-            return samplePracticeRepo.GetFirstOrDefault(memberDetailsId);
+            var memberDetail = samplePracticeRepo.GetFirstOrDefault(memberDetailsId);            
+            return Mapper.Map<MemberDetailsDTO>(memberDetail);
         }
 
-        public IEnumerable<MemberDetails> GetAllMemberDetailsRecords()
+        public IEnumerable<MemberDetailsDTO> GetAllMemberDetailsRecords()
         {
             GenericRepository<MemberDetails> samplePracticeRepo = unitOfWork.GetRepoInstance<MemberDetails>();
-            return samplePracticeRepo.GetAllRecords();
+            var memberDetails = samplePracticeRepo.GetAllRecords();
+            return Mapper.Map<IEnumerable<MemberDetailsDTO>>(memberDetails);
         }
 
         public void UpdateMemberDetails(MemberDetails memberDetails)

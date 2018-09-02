@@ -52,11 +52,6 @@
     <Compile Include="EntityConfiguration\MemberDetailsConfiguration.cs" />
     <Compile Include="EntityConfiguration\MemberLoginDetailsConfiguration.cs" />
     <Compile Include="EntityConfiguration\MemberOrderDetailsConfiguration.cs" />
-    <Compile Include="Migrations\201808180605484_InitialSamplePracticeDb.cs" />
-    <Compile Include="Migrations\201808180605484_InitialSamplePracticeDb.Designer.cs">
-      <DependentUpon>201808180605484_InitialSamplePracticeDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="RepositoryAndUnitOfWork\GenericRepository.cs" />
     <Compile Include="RepositoryAndUnitOfWork\GenericUnitOfWork.cs" />
     <Compile Include="RepositoryAndUnitOfWork\IGenericRepository.cs" />
@@ -73,11 +68,7 @@
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808180605484_InitialSamplePracticeDb.resx">
-      <DependentUpon>201808180605484_InitialSamplePracticeDb.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
-using Domain;
+//using Domain;
+using DatabaseFirstDataLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ using System.Web.Http;
 
 namespace WebApiAndEFPracticeApplication.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class MemberOrderController : ApiController
     {
         MemberOrderDetailsManager memberOrderDetailsManager = new MemberOrderDetailsManager();
@@ -42,7 +43,7 @@ namespace WebApiAndEFPracticeApplication.Controllers
                 return BadRequest(ModelState);
             }
             var result = memberOrderDetailsManager.AddMemberOrderDetails(memberOrderDetails);
-            return CreatedAtRoute("DefaultApi", new { id = result.Id }, result);
+            return CreatedAtRoute("DefaultApi", new { id = result.OrderId }, result);
         }
 
         // PUT: api/MemberDetails/5

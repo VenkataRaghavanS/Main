@@ -4,12 +4,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Domain;
+using DatabaseFirstDataLayer;
 using BusinessLayer;
 
 namespace WebApiAndEFPracticeApplication.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class MemberDetailsController : ApiController
     {
         MemberDetailsManager memberDetailsManager = new MemberDetailsManager();
@@ -42,7 +42,7 @@ namespace WebApiAndEFPracticeApplication.Controllers
                 return BadRequest(ModelState);
             }
             var result = memberDetailsManager.AddMemberDetails(memberDetails);
-            return CreatedAtRoute("DefaultApi", new { id = result.MemberId }, result);
+            return CreatedAtRoute("DefaultApi", new { id = result.MemberLoginDetails.MemberId }, result);
         }
 
         // PUT: api/MemberDetails/5

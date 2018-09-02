@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using BusinessLayer;
-using Domain;
+using DatabaseFirstDataLayer;
 
 namespace WebApiAndEFPracticeApplication.Controllers
 {
@@ -13,6 +13,7 @@ namespace WebApiAndEFPracticeApplication.Controllers
     {
         MemberLoginDetailsManager memberLoginDetailsManager = new MemberLoginDetailsManager();
         
+        [HttpPost]
         public IHttpActionResult RegisterMember([FromBody]MemberLoginDetails memberLoginDetails)
         {
             if (!ModelState.IsValid)
@@ -30,6 +31,7 @@ namespace WebApiAndEFPracticeApplication.Controllers
             }
         }
 
+        [HttpGet]
         public IHttpActionResult CheckIfMemberAlreadyExists(string userName)
         {
             if (memberLoginDetailsManager.CheckIfMemberAlreadyExists(userName))
@@ -41,7 +43,8 @@ namespace WebApiAndEFPracticeApplication.Controllers
                 return Ok(false);
             }
         }
-        // GET: api/MemberRegistration
+        
+        [HttpGet]
         public IHttpActionResult LoginMember(string userName, string password)
         {
             int memberId = memberLoginDetailsManager.LoginMember(userName, password);

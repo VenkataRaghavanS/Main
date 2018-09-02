@@ -1,7 +1,10 @@
-﻿using DataLayer.RepositoryAndUnitOfWork;
-using Domain;
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using DatabaseFirstDataLayer;
+using DatabaseFirstDataLayer.RepositoryAndUnitOfWork;
 using System;
 using System.Collections.Generic;
+using DTO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,24 +16,26 @@ namespace BusinessLayer
         GenericUnitOfWork unitOfWork = new GenericUnitOfWork();
         private bool disposed = false;
 
-        public MemberOrderDetails AddMemberOrderDetails(MemberOrderDetails memberOrderDetails)
+        public MemberOrderDetailsDTO AddMemberOrderDetails(MemberOrderDetails memberOrderDetails)
         {
             GenericRepository<MemberOrderDetails> samplePracticeRepo = unitOfWork.GetRepoInstance<MemberOrderDetails>();
             samplePracticeRepo.Add(memberOrderDetails);
             unitOfWork.SaveChanges();
-            return memberOrderDetails;
+            return Mapper.Map<MemberOrderDetailsDTO>(memberOrderDetails);
         }
 
-        public MemberOrderDetails GetSpecificMemberOrderDetailsRecord(int OrderId)
+        public MemberOrderDetailsDTO GetSpecificMemberOrderDetailsRecord(int OrderId)
         {
             GenericRepository<MemberOrderDetails> samplePracticeRepo = unitOfWork.GetRepoInstance<MemberOrderDetails>();
-            return samplePracticeRepo.GetFirstOrDefault(OrderId);
+            var memberOrderDetail = samplePracticeRepo.GetFirstOrDefault(OrderId);
+            return Mapper.Map<MemberOrderDetailsDTO>(memberOrderDetail);
         }
 
-        public IEnumerable<MemberOrderDetails> GetAllMemberOrderDetailsRecords()
+        public IEnumerable<MemberOrderDetailsDTO> GetAllMemberOrderDetailsRecords()
         {
             GenericRepository<MemberOrderDetails> samplePracticeRepo = unitOfWork.GetRepoInstance<MemberOrderDetails>();
-            return samplePracticeRepo.GetAllRecords();
+            var memberOrderDetails = samplePracticeRepo.GetAllRecords();
+            return Mapper.Map<IEnumerable<MemberOrderDetailsDTO>>(memberOrderDetails);
         }
 
         public void UpdateMemberOrderDetails(MemberOrderDetails memberOrderDetails)

@@ -1,5 +1,5 @@
-﻿using DataLayer.RepositoryAndUnitOfWork;
-using Domain;
+﻿using DatabaseFirstDataLayer.RepositoryAndUnitOfWork;
+using DatabaseFirstDataLayer;
 using System;
 
 namespace BusinessLayer
@@ -14,7 +14,7 @@ namespace BusinessLayer
             GenericRepository<MemberLoginDetails> samplePracticeRepo = unitOfWork.GetRepoInstance<MemberLoginDetails>();
             samplePracticeRepo.Add(memberLoginDetails);
             unitOfWork.SaveChanges();
-            if (memberLoginDetails.Id > 0)            
+            if (memberLoginDetails.MemberId > 0)            
                 return true;            
             else
                 return false;
@@ -30,8 +30,7 @@ namespace BusinessLayer
         public bool CheckIfMemberAlreadyExists(string userName)
         {
             GenericRepository<MemberLoginDetails> samplePracticeRepo = unitOfWork.GetRepoInstance<MemberLoginDetails>();
-            return (samplePracticeRepo.CheckIfUserExisits(userName));
-            
+            return (samplePracticeRepo.CheckIfUserExisits(userName));            
         }
         public void Dispose()
         {
