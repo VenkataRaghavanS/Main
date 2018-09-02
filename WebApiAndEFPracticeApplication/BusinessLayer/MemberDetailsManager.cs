@@ -12,26 +12,35 @@ namespace BusinessLayer
         GenericUnitOfWork unitOfWork = new GenericUnitOfWork();
         private bool disposed = false;
 
-        public MemberDetailsDTO AddMemberDetails(MemberDetails memberDetails)
+        public MemberDetailsDTO AddMemberDetails(MemberDetails memberDetail)
         {
             GenericRepository<MemberDetails> samplePracticeRepo = unitOfWork.GetRepoInstance<MemberDetails>();
-            samplePracticeRepo.Add(memberDetails);
+            samplePracticeRepo.Add(memberDetail);
             unitOfWork.SaveChanges();
-            return Mapper.Map<MemberDetailsDTO>(memberDetails);
+            var memberDetailsDTO = Mapper.Map<MemberDetailsDTO>(memberDetail);
+            memberDetailsDTO.MemberAddress = Mapper.Map<MemberAddressDTO>(memberDetail.MemberAddress);
+            return Mapper.Map<MemberDetailsDTO>(memberDetailsDTO);
         }
 
         public MemberDetailsDTO GetSpecificMemberDetailsRecord(int memberDetailsId)
         {
             GenericRepository<MemberDetails> samplePracticeRepo = unitOfWork.GetRepoInstance<MemberDetails>();
-            var memberDetail = samplePracticeRepo.GetFirstOrDefault(memberDetailsId);            
-            return Mapper.Map<MemberDetailsDTO>(memberDetail);
+            var memberDetail = samplePracticeRepo.GetFirstOrDefault(memberDetailsId);
+            var memberDetailsDTO = Mapper.Map<MemberDetailsDTO>(memberDetail);
+            memberDetailsDTO.MemberAddress = Mapper.Map<MemberAddressDTO>(memberDetail.MemberAddress);
+            return memberDetailsDTO;
         }
 
         public IEnumerable<MemberDetailsDTO> GetAllMemberDetailsRecords()
         {
             GenericRepository<MemberDetails> samplePracticeRepo = unitOfWork.GetRepoInstance<MemberDetails>();
             var memberDetails = samplePracticeRepo.GetAllRecords();
-            return Mapper.Map<IEnumerable<MemberDetailsDTO>>(memberDetails);
+            var memberDetailsDTO = Mapper.Map<IEnumerable<MemberDetailsDTO>>(memberDetails);
+            foreach (var memberDetail in memberDetailsDTO)
+            {
+                memberDetail.MemberAddress = Mapper.Map<MemberAddressDTO>(memberDetail.MemberAddress);
+            }
+            return memberDetailsDTO;
         }
 
         public void UpdateMemberDetails(MemberDetails memberDetails)

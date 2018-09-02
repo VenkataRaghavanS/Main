@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Linq;
 using System.Web.Http;
 using DatabaseFirstDataLayer;
 using BusinessLayer;
@@ -42,7 +38,7 @@ namespace WebApiAndEFPracticeApplication.Controllers
                 return BadRequest(ModelState);
             }
             var result = memberDetailsManager.AddMemberDetails(memberDetails);
-            return CreatedAtRoute("DefaultApi", new { id = result.MemberLoginDetails.MemberId }, result);
+            return CreatedAtRoute("DefaultApi", new { id = result.MemberId }, result);
         }
 
         // PUT: api/MemberDetails/5

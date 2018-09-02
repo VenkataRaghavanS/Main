@@ -1,0 +1,12 @@
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DataLayer\bin\Debug\DataLayer.dll.config
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DataLayer\bin\Debug\DataLayer.dll
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DataLayer\bin\Debug\DataLayer.pdb
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DataLayer\bin\Debug\Domain.dll
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DataLayer\bin\Debug\EntityFramework.dll
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DataLayer\bin\Debug\Domain.pdb
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DataLayer\bin\Debug\EntityFramework.xml
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DataLayer\obj\Debug\DataLayer.dll
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DataLayer\obj\Debug\DataLayer.pdb

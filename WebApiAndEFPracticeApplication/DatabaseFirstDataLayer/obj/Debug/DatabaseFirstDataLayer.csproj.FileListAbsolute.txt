@@ -1,0 +1,12 @@
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DatabaseFirstDataLayer\bin\Debug\DatabaseFirstDataLayer.dll.config
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DatabaseFirstDataLayer\bin\Debug\DatabaseFirstDataLayer.dll
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DatabaseFirstDataLayer\bin\Debug\DatabaseFirstDataLayer.pdb
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DatabaseFirstDataLayer\bin\Debug\EntityFramework.dll
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DatabaseFirstDataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DatabaseFirstDataLayer\bin\Debug\System.ValueTuple.dll
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DatabaseFirstDataLayer\bin\Debug\EntityFramework.xml
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DatabaseFirstDataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DatabaseFirstDataLayer\bin\Debug\System.ValueTuple.xml
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DatabaseFirstDataLayer\obj\Debug\DatabaseFirstDataLayer.csprojResolveAssemblyReference.cache
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DatabaseFirstDataLayer\obj\Debug\DatabaseFirstDataLayer.dll
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DatabaseFirstDataLayer\obj\Debug\DatabaseFirstDataLayer.pdb

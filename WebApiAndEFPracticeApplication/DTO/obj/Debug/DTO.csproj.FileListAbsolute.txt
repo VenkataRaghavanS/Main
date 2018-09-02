@@ -1,0 +1,5 @@
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DTO\bin\Debug\DTO.dll
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DTO\bin\Debug\DTO.pdb
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DTO\obj\Debug\DTO.dll
+D:\Technical Ragav\GitHub\Repos\Main\WebApiAndEFPracticeApplication\DTO\obj\Debug\DTO.pdb

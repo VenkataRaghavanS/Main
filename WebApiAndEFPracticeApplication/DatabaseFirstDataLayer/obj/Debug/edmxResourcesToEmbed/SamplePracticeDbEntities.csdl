@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SamplePracticeDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MemberDetails">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="Boolean" Nullable="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MobileNumber" Type="Int32" />
+    <NavigationProperty Name="MemberLoginDetails" Relationship="Self.FK_MemberDetails_MemberLoginDetails" FromRole="MemberDetails" ToRole="MemberLoginDetails" />
+    <Property Name="MemberAddress" Type="SamplePracticeDbModel.MemberAddress" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemberLoginDetails">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="MemberDetails" Relationship="Self.FK_MemberDetails_MemberLoginDetails" FromRole="MemberLoginDetails" ToRole="MemberDetails" />
+    <NavigationProperty Name="MemberOrderDetails" Relationship="Self.FK_MemberOrderDetails_MemberLoginDetails" FromRole="MemberLoginDetails" ToRole="MemberOrderDetails" />
+  </EntityType>
+  <EntityType Name="MemberOrderDetails">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderText" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MemberId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MemberLoginDetails" Relationship="Self.FK_MemberOrderDetails_MemberLoginDetails" FromRole="MemberOrderDetails" ToRole="MemberLoginDetails" />
+  </EntityType>
+  <Association Name="FK_MemberDetails_MemberLoginDetails">
+    <End Role="MemberLoginDetails" Type="Self.MemberLoginDetails" Multiplicity="1" />
+    <End Role="MemberDetails" Type="Self.MemberDetails" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="MemberLoginDetails">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="MemberDetails">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MemberOrderDetails_MemberLoginDetails">
+    <End Role="MemberLoginDetails" Type="Self.MemberLoginDetails" Multiplicity="1" />
+    <End Role="MemberOrderDetails" Type="Self.MemberOrderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemberLoginDetails">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="MemberOrderDetails">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SamplePracticeDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MemberDetails" EntityType="Self.MemberDetails" />
+    <EntitySet Name="MemberLoginDetails" EntityType="Self.MemberLoginDetails" />
+    <EntitySet Name="MemberOrderDetails" EntityType="Self.MemberOrderDetails" />
+    <AssociationSet Name="FK_MemberDetails_MemberLoginDetails" Association="Self.FK_MemberDetails_MemberLoginDetails">
+      <End Role="MemberLoginDetails" EntitySet="MemberLoginDetails" />
+      <End Role="MemberDetails" EntitySet="MemberDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MemberOrderDetails_MemberLoginDetails" Association="Self.FK_MemberOrderDetails_MemberLoginDetails">
+      <End Role="MemberLoginDetails" EntitySet="MemberLoginDetails" />
+      <End Role="MemberOrderDetails" EntitySet="MemberOrderDetails" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="MemberAddress">
+    <Property Type="String" Name="AddressLine1" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AddressLine2" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="PinCode" />
+  </ComplexType>
+</Schema>

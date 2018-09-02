@@ -1,13 +1,9 @@
 ﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using DatabaseFirstDataLayer;
 using DatabaseFirstDataLayer.RepositoryAndUnitOfWork;
 using System;
 using System.Collections.Generic;
 using DTO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BusinessLayer
 {

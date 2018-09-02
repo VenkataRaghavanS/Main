@@ -10,14 +10,13 @@
 namespace DatabaseFirstDataLayer
 {
     using System;
-    using System.Collections.Generic;
-    
+
     public partial class MemberDetails
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MemberDetails()
         {
-            this.ComplexProperty = new MemberAddress();
+            this.MemberAddress = new MemberAddress();
         }
     
         public int MemberId { get; set; }
@@ -28,7 +27,7 @@ namespace DatabaseFirstDataLayer
         public string Email { get; set; }
         public Nullable<int> MobileNumber { get; set; }
     
-        public MemberAddress ComplexProperty { get; set; }
+        public MemberAddress MemberAddress { get; set; }
     
         public virtual MemberLoginDetails MemberLoginDetails { get; set; }
     }

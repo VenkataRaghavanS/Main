@@ -3,11 +3,9 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BusinessLayer;
-using System.Web;
 
 namespace WebApiAndEFPracticeApplication.Helper_Code.OAuth2
 {

@@ -9,9 +9,7 @@
 
 namespace DatabaseFirstDataLayer
 {
-    using System;
-    using System.Collections.Generic;
-    
+
     public partial class MemberOrderDetails
     {
         public int OrderId { get; set; }

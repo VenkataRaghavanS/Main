@@ -9,9 +9,8 @@
 
 namespace DatabaseFirstDataLayer
 {
-    using System;
     using System.Collections.Generic;
-    
+
     public partial class MemberLoginDetails
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]

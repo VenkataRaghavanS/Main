@@ -90,7 +90,7 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MobileNumber" Type="Int32" />
           <NavigationProperty Name="MemberLoginDetails" Relationship="Self.FK_MemberDetails_MemberLoginDetails" FromRole="MemberDetails" ToRole="MemberLoginDetails" />
-          <Property Name="ComplexProperty" Type="SamplePracticeDbModel.MemberAddress" Nullable="false" />
+          <Property Name="MemberAddress" Type="SamplePracticeDbModel.MemberAddress" Nullable="false" />
         </EntityType>
         <EntityType Name="MemberLoginDetails">
           <Key>
@@ -169,7 +169,7 @@
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
-                <ComplexProperty Name="ComplexProperty">
+                <ComplexProperty Name="MemberAddress">
                   <ScalarProperty Name="PinCode" ColumnName="PinCode" />
                   <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
                   <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
